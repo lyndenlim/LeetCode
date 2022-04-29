@@ -3,12 +3,6 @@
  * @return {number}
  */
 var countSegments = function(s) {
-    counter = 0
-    s.split(" ").forEach(segment => {
-        if (segment !== "") {
-            counter++
-        }
-    })
-    return counter
+        return s.split(" ").filter(segment => segment !== "").length
 
 };
