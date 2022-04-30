@@ -13,11 +13,11 @@ var sumOfUnique = function(nums) {
         }
     }
 
-    let nonDupKeys = Object.keys(numCount).filter(key => numCount[key] === 1).map(key => parseInt(key))
-    console.log(nonDupKeys)
-    if (nonDupKeys.length < 1) {
+    let nonDupKeys = Object.keys(numCount).filter(key => numCount[key] === 1)
+    let nonDupKeysInt = nonDupKeys.map(key => parseInt(key))
+    if (nonDupKeysInt.length < 1) {
         return 0
     } else {
-        return nonDupKeys.reduce((prev, current) => prev + current)
+        return nonDupKeysInt.reduce((prev, current) => prev + current)
     }
 };
