@@ -3,15 +3,14 @@
  * @return {boolean}
  */
 var divideArray = function(nums) {
-    let result = []
-    for (let num = 0; num < nums.length; num += 2) {
-        let pair = nums.sort().slice(num, num + 2)
-        if (pair[0] === pair[1]) {
-            result.push(true)
+    let numSet = new Set() 
+    for (let num of nums) {
+        if (numSet.has(num)) {
+            numSet.delete(num)
         } else {
-            result.push(false)
+            numSet.add(num)
         }
     }
-    
-    return result.every(value => value === true)
+
+    return numSet.size === 0 
 };
