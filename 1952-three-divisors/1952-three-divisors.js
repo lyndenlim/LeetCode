@@ -11,9 +11,5 @@ var isThree = function(n) {
         }
     }
 
-    if (divisors.length === 3) {
-        return true
-    } else {
-        return false
-    }
+    return divisors.length === 3
 };
