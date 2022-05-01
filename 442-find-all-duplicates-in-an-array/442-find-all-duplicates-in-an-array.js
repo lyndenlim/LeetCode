@@ -7,16 +7,12 @@ var findDuplicates = function(nums) {
     let result = []
     for (let i of nums) {
         if (numCount[i]) {
+            result.push(i)
             numCount[i] += 1
         } else {
             numCount[i] = 1
         }
     }
 
-    for (let num in numCount) {
-        if (numCount[num] >= 2) {
-            result.push(parseInt(num))
-        }
-    }
     return result
 };
