@@ -3,15 +3,14 @@
  * @return {boolean}
  */
 var checkPerfectNumber = function(num) {
-    let result = []
-    for (let i = 1; i < num; i++) {
-        if (num % i === 0) {
-            result.push(i)
-        }
-    }
-    if (result.length !==0) {
-        return result.reduce((prev, current) => prev + current) === num
-    } else {
+    if (num ===1 ){
         return false
     }
+    let result = 1
+    for (let i = 2; i < num; i++) {
+        if (num % i === 0) {
+            result += i
+        }
+    }
+    return result === num
 };
