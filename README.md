@@ -1,2 +1,2 @@
 # LeetCode
-Collection of my completed LeetCode questions
+Collection of my completed LeetCode questions in JavaScript
