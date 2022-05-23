@@ -4,11 +4,11 @@
  * @return {number}
  */
 var findFinalValue = function(nums, original) {
-    let numsAsSet = new Set(nums)
-    let result = original
-
-    while (numsAsSet.has(result)) {
-        result *= 2
+   let copyOfOriginal = original
+    for (let num of nums.sort((a, b) => a - b)) {
+        if (num === copyOfOriginal) {
+            copyOfOriginal *= 2
+        }
     }
-    return result 
+    return copyOfOriginal
 };
