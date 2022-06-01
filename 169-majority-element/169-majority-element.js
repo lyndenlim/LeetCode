@@ -3,15 +3,18 @@
  * @return {number}
  */
 var majorityElement = function(nums) {
-    let numberCount = {}
-
-    for (let num of nums) {
-        numberCount[num] ? numberCount[num] += 1 : numberCount[num] = 1
+     let letterCount = {};
+  for (i of nums) {
+    if (letterCount[i]) {
+      letterCount[i] += 1;
+    } else {
+      letterCount[i] = 1;
     }
+  }
 
-    for (let num in numberCount) {
-        if (numberCount[num] > nums.length / 2) {
-            return num
-        }
+  for (let i in letterCount) {
+    if (letterCount[i] === Math.max(...Object.values(letterCount))) {
+      return i;
     }
+  }
 };
