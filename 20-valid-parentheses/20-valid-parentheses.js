@@ -3,13 +3,13 @@
  * @return {boolean}
  */
 var isValid = function(s) {
-  if (s.length === 0 || s.length % 2 !== 0) return false;
-  let parenthesesObj = { "{": "}", "[": "]", "(": ")" };
+    if (s.length % 2 !== 0) return false;
+  const parentheses = { "{": "}", "[": "]", "(": ")" };
   let result = [];
   for (let i = 0; i < s.length; i++) {
-    if (parenthesesObj[s[i]]) {
+    if (s[i] in parentheses) {
       result.push(s[i]);
-    } else if (s[i] !== parenthesesObj[result.pop()]) {
+    } else if (parentheses[result.pop()] !== s[i]) {
       return false;
     }
   }
