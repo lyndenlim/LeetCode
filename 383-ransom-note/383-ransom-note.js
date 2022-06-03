@@ -4,26 +4,29 @@
  * @return {boolean}
  */
 var canConstruct = function(ransomNote, magazine) {
-    let letterCountMagazine = {};
+    // return true if ransomnote can be made from magazine string
+    // create a hashmap that will store the letter count from magazine 
+    // iterate through ransomnote and every time a letter from random note appears, we can subtract the value from magazine 
+    // if the value ever hits -1 in magazine return false
+    // otherwise true
+    
+    let magazineLetterCount = {};
 
   for (let i = 0; i < magazine.length; i++) {
-    if (letterCountMagazine[magazine[i]]) {
-      letterCountMagazine[magazine[i]] += 1;
+    if (magazineLetterCount[magazine[i]]) {
+      magazineLetterCount[magazine[i]] += 1;
     } else {
-      letterCountMagazine[magazine[i]] = 1;
+      magazineLetterCount[magazine[i]] = 1;
     }
   }
 
-  for (let i of ransomNote) {
-    if (i in letterCountMagazine) {
-      letterCountMagazine[i] -= 1;
-      if (letterCountMagazine[i] === -1) {
-        return false;
-      }
+  for (let letter of ransomNote) {
+    if (letter in magazineLetterCount) {
+      magazineLetterCount[letter] -= 1;
+      if (magazineLetterCount[letter] === -1) return false;
     } else {
       return false;
     }
   }
-
   return true;
 };
