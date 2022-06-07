@@ -18,11 +18,9 @@ var isBalanced = function(root) {
         let left = dfs(node.left)
         let right = dfs(node.right)
         
-        if (Math.abs(left - right) > 1) {
-            return Infinity
-        }
+        if (left === false || right === false || Math.abs(left - right) > 1) return false
         return 1 + Math.max(left, right)
     }
     
-    return dfs(root) === Infinity ? false : true
+    return dfs(root) === false ? false : true
 };
