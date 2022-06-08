@@ -4,15 +4,10 @@
  * @return {number[][]}
  */
 var kClosest = function(points, k) {
-   let coordDistanceArray = [];
+     points.sort((a, b) => squaredDistance(a) - squaredDistance(b));
+  return points.slice(0, k);
 
-  for (let i = 0; i < points.length; i++) {
-    coordDistanceArray.push([
-      Math.sqrt(points[i][0] ** 2 + points[i][1] ** 2),
-      points[i],
-    ]);
+  function squaredDistance([x, y]) {
+    return x ** 2 + y ** 2;
   }
-
-  coordDistanceArray.sort((a, b) => a[0]- b[0]);
-  return coordDistanceArray.slice(0, k).map((pair) => pair[1]);
 };
