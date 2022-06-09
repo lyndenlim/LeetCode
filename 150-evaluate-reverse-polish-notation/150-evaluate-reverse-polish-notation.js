@@ -14,7 +14,7 @@ var evalRPN = function(tokens) {
     } else if (tokens[idx] === "/") {
       let a = tokenStack.pop();
       let b = tokenStack.pop();
-      tokenStack.push(parseInt(b / a));
+      tokenStack.push(Math.trunc(b / a));
     } else if (tokens[idx] === "*") {
       tokenStack.push(tokenStack.pop() * tokenStack.pop());
     } else {
