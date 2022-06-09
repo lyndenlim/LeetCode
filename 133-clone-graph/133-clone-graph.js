@@ -11,7 +11,7 @@
  * @return {Node}
  */
 var cloneGraph = function(node) {
-    var visited = {};
+    let visited = {};
 
   let dfs = function (node) {
     if (!node) return node;
