@@ -11,26 +11,21 @@
  * @return {number[][]}
  */
 var levelOrder = function(root) {
-    // bfs 
-    // create queue and we'll initialize it with the root node
-    // as long as there's something in the queue to be processed we can remove the first node and then add the children node to the queue 
-    // we can keep track of the levels by taking the length of the queue 
+    if (!root) return []
     
-        if (!root) return []
+    let result = []
+    let queue = [root]
     
-        let queue = [root]
-        let result = []
-        
-        while (queue.length > 0) {
-            let qlen = queue.length
-            let rows = []
-            for (let i = 0; i < qlen; i++) {
-                let currentNode = queue.shift()
-                rows.push(currentNode.val)
-                if (currentNode.left) queue.push(currentNode.left)
-                if (currentNode.right) queue.push(currentNode.right)
-            }
-            result.push(rows)
+    while (queue.length > 0) {
+        let row = []
+        let qlen = queue.length
+        for (let i = 0; i < qlen; i++) {
+            let currentNode = queue.shift()
+            row.push(currentNode.val)
+            if (currentNode.left) queue.push(currentNode.left)
+            if (currentNode.right) queue.push(currentNode.right)
         }
-        return result
+        result.push(row)
+    }
+    return result
 };
