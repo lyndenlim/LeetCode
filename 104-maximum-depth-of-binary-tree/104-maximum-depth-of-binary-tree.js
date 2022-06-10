@@ -11,11 +11,8 @@
  * @return {number}
  */
 var maxDepth = function(root) {
-    while(root) {
-        let left = maxDepth(root.left)
-        let right = maxDepth(root.right)
-        
-        return 1 + Math.max(left, right)
-    }
-    return root
+    if (!root) return 0 
+    let left = maxDepth(root.left)
+    let right = maxDepth(root.right)
+    return 1 + Math.max(left, right)
 };
