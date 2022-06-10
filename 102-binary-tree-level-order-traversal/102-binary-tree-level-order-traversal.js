@@ -17,15 +17,17 @@ var levelOrder = function(root) {
     let queue = [root]
     
     while (queue.length > 0) {
+        let qlen = queue.length 
         let row = []
-        let qlen = queue.length
+        
         for (let i = 0; i < qlen; i++) {
             let currentNode = queue.shift()
             row.push(currentNode.val)
-            if (currentNode.left) queue.push(currentNode.left)
-            if (currentNode.right) queue.push(currentNode.right)
+            if(currentNode.left) queue.push(currentNode.left)
+            if(currentNode.right) queue.push(currentNode.right)
         }
         result.push(row)
     }
-    return result
+    return result 
+
 };
