@@ -11,21 +11,22 @@
  * @return {Node}
  */
 var cloneGraph = function(node) {
-    let visited = {};
-
-  let dfs = function (node) {
-    if (!node) return node;
-    if (visited[node.val]) return visited[node.val];
-
-    let root = new Node(node.val);
-    visited[node.val] = root;
-
-    for (let neighbor of node.neighbors) {
-      root.neighbors.push(dfs(neighbor));
+    let visited = {}
+    
+    function clone(node) {
+        if (!node) return node
+        
+        if (visited[node.val]) return visited[node.val]
+        
+        let head = new Node(node.val)
+        visited[node.val] = head 
+        
+        for (let neighbor of node.neighbors) {
+            head.neighbors.push(clone(neighbor))
+        }
+        
+        return head
     }
-
-    return root;
-  };
-
-  return dfs(node);
+    
+    return clone(node)
 };
