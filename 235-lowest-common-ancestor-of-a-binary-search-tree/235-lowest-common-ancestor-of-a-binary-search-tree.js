@@ -20,6 +20,6 @@ var lowestCommonAncestor = function(root, p, q) {
             root = root.right
         } else {
             return root
-        }
+        }    
     }
 };
