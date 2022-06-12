@@ -12,15 +12,15 @@
  */
 var isValidBST = function(root) {
     
-    function dfs(node, min = null, max = null) {
+    function validate(node, min = null, max = null) {
         if (!node) return true
         
-        if ((min !== null && node.val <= min) || (max !== null && node.val >= max)) {
+        if (min !== null && node.val <= min || max !== null & node.val >= max) {
             return false
         }
         
-        return (dfs(node.left, min, node.val) && dfs(node.right, node.val, max)) 
+        return (validate(node.left, min, node.val) && validate(node.right, node.val, max))
     }
     
-    return dfs(root)
+    return validate(root)
 };
