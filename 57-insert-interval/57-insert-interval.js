@@ -16,7 +16,6 @@ var insert = function(intervals, newInterval) {
             newInterval = [Math.min(newInterval[0], intervals[i][0]), Math.max(newInterval[1], intervals[i][1])]
         }
     }
-    
     result.push(newInterval)
     
     return result
