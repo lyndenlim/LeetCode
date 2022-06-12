@@ -13,7 +13,7 @@ var lengthOfLongestSubstring = function(s) {
             left ++ 
         }
         seen.add(s[i])
-        maxLen = Math.max(maxLen, i - left + 1)
+        maxLen = Math.max(maxLen, seen.size)
     }
     return maxLen
 };
