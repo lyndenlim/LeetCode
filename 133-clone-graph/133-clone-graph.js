@@ -21,8 +21,8 @@ var cloneGraph = function(node) {
         let head = new Node(node.val)
         visited[node.val] = head
         
-        for(let neighbor of node.neighbors) {
-            head.neighbors.push(clone(neighbor))
+        for (let nei of node.neighbors) {
+            head.neighbors.push(clone(nei))
         }
         
         return head
