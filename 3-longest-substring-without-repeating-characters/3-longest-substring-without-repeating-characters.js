@@ -3,30 +3,17 @@
  * @return {number}
  */
 var lengthOfLongestSubstring = function(s) {
-    // abcabccc res = 3
-    // bbbbb res = 1
-    // cookie res = 4
-    
-    let currentLen = 0
-    let maxLen = 0
+    let seen = new Set ()
+    let maxLen = 0 
     let left = 0 
-    let letterCount = {}
     
-    let i = 0
-    while (i < s.length) {
-        if (letterCount[s[i]]) {
-            while (letterCount[s[i]]) {
-                delete letterCount[s[left]]
-                left ++
-                currentLen -- 
-            }
-        } else {
-            letterCount[s[i]] = 1 
-            currentLen ++ 
-            maxLen = Math.max(maxLen, currentLen)
-            i ++
+    for (let i = 0; i < s.length; i++) {
+        while (seen.has(s[i])) {
+            seen.delete(s[left])
+            left ++ 
         }
+        seen.add(s[i])
+        maxLen = Math.max(maxLen, i - left + 1)
     }
-    
     return maxLen
 };
