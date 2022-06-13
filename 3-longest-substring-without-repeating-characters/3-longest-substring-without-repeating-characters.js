@@ -3,8 +3,8 @@
  * @return {number}
  */
 var lengthOfLongestSubstring = function(s) {
-    let seen = new Set ()
-    let maxLen = 0 
+    let seen = new Set()
+    let maxLen = 0
     let left = 0 
     
     for (let i = 0; i < s.length; i++) {
@@ -15,5 +15,6 @@ var lengthOfLongestSubstring = function(s) {
         seen.add(s[i])
         maxLen = Math.max(maxLen, seen.size)
     }
+    
     return maxLen
 };
