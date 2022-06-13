@@ -10,7 +10,7 @@ var twoSum = function(nums, target) {
         if (target - nums[i] in numsInfo) {
             return [i, numsInfo[target-nums[i]]]
         } else {
-            numsInfo[nums[i]] = i
+            numsInfo[nums[i]] = i 
         }
     }
 };
