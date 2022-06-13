@@ -13,19 +13,19 @@
 var isBalanced = function(root) {
     let balanced = true
     
-    function dfs(node) {
-        if (!node) return false
+    function getHeight(node) {
+        if (!node) return 0
         
-        let left = dfs(node.left)
-        let right = dfs(node.right)
+        let left = getHeight(node.left)
+        let right = getHeight(node.right)
         
         if (Math.abs(left - right) > 1) {
             balanced = false
         }
         
-        return 1 + Math.max(left, right)
+        return 1 + Math.max(left,right)
     }
     
-    dfs(root)
+    getHeight(root)
     return balanced
 };
