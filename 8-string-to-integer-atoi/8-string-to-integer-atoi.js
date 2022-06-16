@@ -3,7 +3,7 @@
  * @return {number}
  */
 var myAtoi = function(s) {
-    let i = 0;
+  let i = 0;
   let sign = 1;
   let res = 0;
   while (s[i] == " ") i++;
