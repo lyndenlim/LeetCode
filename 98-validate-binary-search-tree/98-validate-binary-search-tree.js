@@ -11,15 +11,14 @@
  * @return {boolean}
  */
 var isValidBST = function(root) {
-    
     function validate(node, min = null, max = null) {
         if (!node) return true
         
-        if (min !== null && node.val <= min || max !== null & node.val >= max) {
-            return false
+    if (min !== null && node.val <= min || max !== null && node.val >= max) {
+        return false
         }
         
-        return (validate(node.left, min, node.val) && validate(node.right, node.val, max))
+    return (validate(node.left, min, node.val) && (validate(node.right, node.val, max)))
     }
     
     return validate(root)
