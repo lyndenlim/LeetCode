@@ -20,7 +20,7 @@ var myAtoi = function(s) {
         result = result * 10 + (s[idx] - 0) 
         if (result * sign >= (2 ** 31) - 1 ) return (2 ** 31) - 1
     
-        if (result * sign <= -2147483648) return -2147483648
+        if (result * sign <= Math.pow(-2, 31)) return Math.pow(-2, 31)
         idx++;
     }
     
