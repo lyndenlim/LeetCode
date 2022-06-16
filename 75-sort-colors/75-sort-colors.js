@@ -8,16 +8,18 @@ var sortColors = function(nums) {
     
     let current = 0 
     
+    function swap(i,j) {
+        let temp = nums[i]
+        nums[i] = nums[j]
+        nums[j] = temp
+    }
+    
     while (current <= right) {
         if (nums[current] === 0) {
-            let temp = nums[left] 
-            nums[left] = nums[current]
-            nums[current] = temp
+            swap(left,current)
             left += 1 
         } else if (nums[current] === 2) {
-            let temp = nums[right] 
-            nums[right] = nums[current]
-            nums[current] = temp
+            swap(current,right)
             right -= 1 
             current -= 1 
         }
