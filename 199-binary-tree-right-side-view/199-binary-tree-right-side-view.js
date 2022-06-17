@@ -11,17 +11,24 @@
  * @return {number[]}
  */
 var rightSideView = function(root) {
-    let result = [];
-
-  function getRightSide(node, level) {
-    if (!node) return [];
-
-    result[level] = node.val;
-    let left = getRightSide(node.left, level + 1);
-    let right = getRightSide(node.right, level + 1);
-  }
-
-  getRightSide(root, 0);
-
-  return result;
+    let result = []
+    let queue = [root]
+    
+    while (queue.length) {
+        let rightSide = null
+        let qlen = queue.length
+        
+        for (let i = 0; i < qlen; i ++) {
+            let node = queue.shift()
+            if (node) {
+                rightSide = node
+               queue.push(node.left)
+                queue.push(node.right)
+            }
+        }
+        if (rightSide) {
+            result.push(rightSide.val)
+        }
+    }
+    return result
 };
