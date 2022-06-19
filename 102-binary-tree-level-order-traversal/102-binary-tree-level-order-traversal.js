@@ -13,19 +13,21 @@
 var levelOrder = function(root) {
     if (!root) return []
     
-    let result = [] 
-    let queue = [root]
+    let result = []
+    let queue = [root] 
     
-    while (queue.length > 0) {
-        let qlen = queue.length 
+    while (queue.length) {
+        let qlen = queue.length
         let row = []
-        for (let i =0; i < qlen; i++) {
-            let currentNode = queue.shift()
-            row.push(currentNode.val)
-            if (currentNode.left) queue.push(currentNode.left)
-            if (currentNode.right) queue.push(currentNode.right)
+        
+        for (let i = 0; i < qlen; i++) {
+            let current = queue.shift()
+            row.push(current.val)
+            if (current.left) queue.push(current.left)
+            if (current.right) queue.push(current.right)
         }
         result.push(row)
     }
+    
     return result
 };
