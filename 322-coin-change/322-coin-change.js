@@ -4,9 +4,7 @@
  * @return {number}
  */
 var coinChange = function(coins, amount) {
-    let cache = Array(amount + 1) 
-    cache.fill(amount + 1)
-    
+    let cache = Array(amount + 1).fill(amount + 1)
     cache[0] = 0
     
     for (let i = 1; i <= amount; i++) {
@@ -17,5 +15,5 @@ var coinChange = function(coins, amount) {
         }
     }
     
-    return cache[amount] > amount ? - 1 : cache[amount]
+    return cache[amount] > amount ? -1 : cache[amount]
 };
