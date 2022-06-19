@@ -3,27 +3,26 @@
  * @return {number}
  */
 var longestPalindrome = function(s) {
-    let sLetterCount = {}
+    let letterCount = {}
     let odd = false
-    let result = 0 
+    let maxLen = 0 
     
-    for (let char of s) {
-        if (sLetterCount[char]) {
-            sLetterCount[char] += 1
+    for (let i = 0; i < s.length; i++){
+        if (letterCount[s[i]]) {
+            letterCount[s[i]] += 1
         } else {
-            sLetterCount[char] = 1
+            letterCount[s[i]] = 1
         }
     }
     
-    for (let i in sLetterCount) {
-        if (sLetterCount[i] % 2 === 0) {
-            result += sLetterCount[i]
+    for (letter in letterCount) {
+        if (letterCount[letter] % 2 === 0) {
+            maxLen += letterCount[letter]
         } else {
-            result += sLetterCount[i] - 1 
+            maxLen += letterCount[letter] - 1 
             odd = true
         }
     }
     
-    return odd ? result + 1: result 
-    
+    return odd ? maxLen + 1 : maxLen
 };
