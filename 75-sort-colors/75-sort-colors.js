@@ -3,23 +3,23 @@
  * @return {void} Do not return anything, modify nums in-place instead.
  */
 var sortColors = function(nums) {
-    let left = 0 
-    let right = nums.length - 1 
+    let left = 0
+    let right = nums.length-1
+    let current = 0 
     
-    let i = 0 
-    while (i <= right) {
-        if (nums[i] === 2) {
-            let temp = nums[i] 
-            nums[i] = nums[right]
+    while (current <= right) {
+        if (nums[current] === 2) {
+            let temp = nums[current]
+            nums[current] = nums[right]
             nums[right] = temp
-            right -= 1;
-            i--;
-        } else if (nums[i] === 0) {
-            let temp = nums[left]
-            nums[left] = nums[i]
-            nums[i] = temp 
-            left += 1 ;
+            current--;
+            right--;
+        } else if (nums[current] === 0) {
+            let temp = nums[left] 
+            nums[left] = nums[current] 
+            nums[current] = temp
+            left++;
         }
-        i++;
+        current++;
     }
 };
