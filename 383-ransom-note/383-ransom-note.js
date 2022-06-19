@@ -4,21 +4,23 @@
  * @return {boolean}
  */
 var canConstruct = function(ransomNote, magazine) {
-    let magazineCount = {}
+    let letterCount = {}
     
-    for (let char of magazine) {
-        if (magazineCount[char]) {
-            magazineCount[char] += 1 
+    for (let letter of magazine) {
+        if (letterCount[letter]) {
+            letterCount[letter] += 1
         } else {
-            magazineCount[char] = 1 
+            letterCount[letter] = 1
         }
     }
     
-    for (let char of ransomNote) {
-        if (!magazineCount[char]) {
+    for (let letter of ransomNote) {
+        if (!letterCount[letter]) {
             return false
+        } else {
+            letterCount[letter]--;
         }
-        magazineCount[char] --
     }
+    
     return true
 };
