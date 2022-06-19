@@ -3,19 +3,20 @@
  * @return {number[]}
  */
 var productExceptSelf = function(nums) {
-    let answer = []
+    let result = []
     
-    let prefix = 1 
+    let prefix = 1   
     for (let i = 0; i < nums.length; i++) {
-        answer[i] = prefix
+        result[i] = prefix
         prefix *= nums[i]
     }
     
-    let postfix = 1 
+    let suffix = 1 
     for (let i = nums.length - 1; i >= 0; i--) {
-        answer[i] *= postfix
-        postfix *= nums[i]
+        result[i] *= suffix
+        suffix *= nums[i]
+        
     }
     
-    return answer
+    return result
 };
