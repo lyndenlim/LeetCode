@@ -5,20 +5,22 @@
 var canPartition = function(nums) {
     if (nums.reduce((prev, curr) => prev + curr) % 2) return false
     
-    let targetSum = nums.reduce((prev, current) => prev + current) / 2
-    let sumSet = new Set()
-    sumSet.add(0)
+    let set = new Set()
+    set.add(0)
+    let targetSum = nums.reduce((prev, curr) => prev + curr) / 2 
     
     for (let i = nums.length - 1; i >= 0; i--) {
-        let newSumSet = new Set()
-        for (let total of sumSet) {
-            if (total + nums[i] === targetSum) return true
+        let newSet = new Set()
+        for (thing of set) {
+            if (thing + nums[i] === targetSum) return true  
             
-            newSumSet.add(total + nums[i])
-            newSumSet.add(total)
+            newSet.add(thing + nums[i])
+            newSet.add(thing)
         }
-        sumSet = newSumSet
+        
+        set = newSet
     }
     
-    return sumSet.has(targetSum)
+    return set.has(targetSum)
+    
 };
