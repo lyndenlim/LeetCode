@@ -4,13 +4,13 @@
  * @return {number[]}
  */
 var twoSum = function(nums, target) {
-    let numsInfo = {}
+    let complementIndex = {}
     
     for (let i = 0; i < nums.length; i++) {
-        if (target - nums[i] in numsInfo) {
-            return [i, numsInfo[target-nums[i]]]
+        if (target - nums[i] in complementIndex) {
+            return [complementIndex[target-nums[i]], i]
         } else {
-            numsInfo[nums[i]] = i 
+            complementIndex[nums[i]] = i 
         }
     }
 };
