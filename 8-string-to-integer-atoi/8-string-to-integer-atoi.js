@@ -3,25 +3,27 @@
  * @return {number}
  */
 var myAtoi = function(s) {
+    let sign = 1
+    let i = 0 
     let result = 0
-    let idx = 0 
-    let sign = 1 
     
-    while (s[idx] === " ") idx++;
+    while (s[i] === " ") i++
     
-    if (s[idx] === "+") {
-        idx++;
-    } else if (s[idx] === "-") {
-        sign = -1 
-        idx++;
+    if (s[i] === "+") {
+        i++;
+    } else if (s[i] === "-" ) {
+        sign = -1
+        i++;
     }
     
-    while (s[idx] >= "0" && s[idx] <= "9") {
-        result = result * 10 + (s[idx] - 0)
-        if (result * sign >= Math.pow(2, 31) - 1) return Math.pow(2,31) -1
-        if (result * sign <= Math.pow(-2, 31)) return Math.pow(-2,31)
-        idx++
+    while (s[i] >= "0" && s[i] <= "9"){
+        result = result * 10 + (s[i] - 0)
+        
+        if (result * sign >= Math.pow(2,31) - 1) return Math.pow(2,31) - 1
+        if (result * sign <= Math.pow(-2,31)) return Math.pow(-2,31)
+        i++
     }
     
-    return result * sign
+    return result * sign 
+        
 };
