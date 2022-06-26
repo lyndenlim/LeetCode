@@ -8,7 +8,7 @@
 var floodFill = function(image, sr, sc, color) {
     let currentColor = image[sr][sc]
     
-    if (currentColor === color) return image 
+    if (currentColor === color) return image
     
     let queue = [[sr,sc]]
     
@@ -22,5 +22,6 @@ var floodFill = function(image, sr, sc, color) {
             if (col + 1 < image[row].length) queue.push([row, col + 1])
         }
     }
+    
     return image
 };
