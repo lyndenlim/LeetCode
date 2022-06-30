@@ -3,8 +3,9 @@
  * @return {boolean}
  */
 var threeConsecutiveOdds = function(arr) {
-     return arr
-    .map((num) => num % 2)
-    .join("")
-    .includes("111");
+     for (let i = 0; i<arr.length; i++) {
+         if (arr[i] % 2 === 1 && arr[i+1] % 2 === 1 && arr[i+2] % 2 === 1) return true
+     }
+    return false
+    
 };
