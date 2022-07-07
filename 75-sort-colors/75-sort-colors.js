@@ -10,7 +10,7 @@ var sortColors = function(nums) {
     while (i <= right) {
         if (nums[i] === 2) {
             let temp = nums[i]
-            nums[i] = nums[right]
+            nums[i] = nums[right] 
             nums[right] = temp
             i--;
             right--;
@@ -20,6 +20,6 @@ var sortColors = function(nums) {
             nums[left] = temp
             left++;
         }
-        i++;
+        i++
     }
 };
