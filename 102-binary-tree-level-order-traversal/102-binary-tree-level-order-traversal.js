@@ -19,6 +19,7 @@ var levelOrder = function(root) {
     while (queue.length) {
         let qlen = queue.length
         let row = []
+        
         for (let i = 0; i < qlen; i++) {
             let node = queue.shift()
             row.push(node.val)
