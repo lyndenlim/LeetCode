@@ -18,14 +18,14 @@ var cloneGraph = function(node) {
         
         if (visited[node.val]) return visited[node.val]
         
-        let head = new Node(node.val)
-        visited[node.val] = head 
+        let current = new Node(node.val)
+        visited[node.val] = current
         
-        for (let neigh of node.neighbors) {
-            head.neighbors.push(clone(neigh))
+        for (let nei of node.neighbors) {
+            current.neighbors.push(clone(nei))
         }
         
-        return head
+        return current
     }
     
     return clone(node)
