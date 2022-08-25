@@ -19,5 +19,4 @@ var middleNode = function(head) {
     }
     
     return slow
-    
 };
