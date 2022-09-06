@@ -11,7 +11,7 @@
  * @return {number[]}
  */
 var rightSideView = function(root) {
-    let result = [] 
+    let result = []
     let queue = [root] 
     
     while (queue.length) {
@@ -21,17 +21,15 @@ var rightSideView = function(root) {
         for (let i = 0; i < qlen; i++) {
             let node = queue.shift()
             if (node) {
-                rightSide = node
+                rightSide = node 
                 queue.push(node.left)
                 queue.push(node.right)
-            }    
+            }
         }
+        
         if (rightSide) {
             result.push(rightSide.val)
         }
     }
-    
-    return result
-    
-    
+    return result 
 };
